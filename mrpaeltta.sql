@@ -236,12 +236,13 @@ CREATE TABLE `usuario` (
   `id_municipio` int(11) DEFAULT NULL,
   `direccion` varchar(150) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `fecha_creacion` timestamp NULL DEFAULT current_timestamp(),
+  `clave` varchar(1000) DEFAULT NULL,
   PRIMARY KEY (`id_usuario`),
   KEY `fk_us_depar_idx` (`id_departamento`),
   KEY `fk_us_mun_idx` (`id_municipio`),
   CONSTRAINT `fk_us_depar` FOREIGN KEY (`id_departamento`) REFERENCES `departamento` (`id_departamento`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_us_mun` FOREIGN KEY (`id_municipio`) REFERENCES `municipio` (`id_municipio`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -250,6 +251,7 @@ CREATE TABLE `usuario` (
 
 LOCK TABLES `usuario` WRITE;
 /*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
+INSERT INTO `usuario` VALUES (2,'Juan Camilo Cruz','1234','juanfran32334@gmail.com','6977557','1',33,1,'calle1','2024-03-19 01:16:13','f168e8410de98a87c638c979ba0e8ca3e1cc3be4002b79c5391818624e04b347f63c8ff427101120404a1e23e1e8cc020424ba16413cbcf2a54b03f1c86ba05e'),(3,'Yuri Milena Hernandez','54687','miley_hernandez@hotmail.com','656565','1',33,1,'calle 2','2024-03-18 22:40:43','ba3253876aed6bc22d4a6ff53d8406c6ad864195ed144ab5c87621b6c233b548baeae6956df346ec8c17f5ea10f35ee3cbc514797ed7ddd3145464e2a0bab413');
 /*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -352,4 +354,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-02-20 16:52:29
+-- Dump completed on 2024-03-18 17:47:16
