@@ -1,5 +1,5 @@
 <html>
-<head>
+<head lang="es">
     <meta charset="UTF-8">
     <title>MrPaletta</title>
     <script src="assets/jquery.js"></script>
@@ -18,7 +18,7 @@
     </style>
 </head>
 
-<body>
+<body style="background-color:#ffd91a">
 
 <!-- Section: Design Block -->
 <section class="text-center text-lg-start">
@@ -44,19 +44,26 @@
             ">
           <div class="card-body p-5 shadow-5 text-center">
             <h2 class="fw-bold mb-5">Inicio de sesión</h2>
-            <form>
+            <?php
+            
+            if(isset($_REQUEST["valida"])){
+              echo "<div class='alert alert-warning' role='alert'>Informacion erronea ingrese nuevamente</div>";
+            }
+
+            ?>
+            <form action="Controlador/UsuarioControl.php" method="post">
               <!-- 2 column grid layout with text inputs for the first and last names -->
-             
+              <input type="hidden" name="opc" value="Login" id="opc">
 
               <!-- Email input -->
               <div class="form-outline mb-4">
-                <input type="email" id="correo" class="form-control"  placeholder="Ingrese su correo electronico"/>
+                <input type="email" id="correo" name="correo" class="form-control"  placeholder="Ingrese su correo electronico" required="true"/>
                 <label class="form-label" for="correo">Correo</label>
               </div>
 
               <!-- Password input -->
               <div class="form-outline mb-4">
-                <input type="password" id="clave" class="form-control" placeholder="Ingrese su contraseña"/>
+                <input type="password" id="clave" name="clave" class="form-control" placeholder="Ingrese su contraseña" required="true"/>
                 <label class="form-label" for="clave">Contraseña</label>
               </div>
 
@@ -83,3 +90,7 @@
 <!-- Section: Design Block -->
 
 </body>
+
+<?php 
+ //echo  hash('sha512', '123456');
+?>
