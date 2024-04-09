@@ -15,7 +15,8 @@ if(isset($_SESSION['usr'])){
     <link href="assets/bootstrap-5.3.3/dist/css/bootstrap.css" rel="stylesheet" id="bootstrap-css">
     <script src="Ajax/Perfil.js"></script>
     <script src="assets/Datatable/datatables.min.js"></script>
-    <link href="assets/Datatable/datatables.css" rel="stylesheet"></script>
+    <link href="assets/css/datatable.css" rel="stylesheet"></script>
+    <script src="assets/js/jquery_validate.js"></script>
 </head>
 
 <body>
@@ -95,6 +96,11 @@ if(isset($_SESSION['usr'])){
             <li class="list-group-item">
                 <button type="button" class="btn btn-link" onclick="VistaPerfilAdmin()">
                     Ver Perfiles
+                </button>
+            </li>
+            <li class="list-group-item">
+                <button type="button" class="btn btn-link" onclick="VistaCrearPerfil()">
+                    Crear Perfiles
                 </button>
             </li>
       </ul>
