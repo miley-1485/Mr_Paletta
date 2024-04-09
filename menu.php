@@ -14,6 +14,7 @@ if(isset($_SESSION['usr'])){
     <script src="assets/jquery.js"></script>
     <link href="assets/bootstrap-5.3.3/dist/css/bootstrap.css" rel="stylesheet" id="bootstrap-css">
     <script src="Ajax/Perfil.js"></script>
+    <script src="Ajax/Departamento.js"></script>
     <script src="assets/Datatable/datatables.min.js"></script>
     <link href="assets/css/datatable.css" rel="stylesheet"></script>
     <script src="assets/js/jquery_validate.js"></script>
@@ -83,6 +84,7 @@ if(isset($_SESSION['usr'])){
       </div>
     </div>
   </div>
+  <!-- INICIA UN ITEM DEL ACORDEON -->
   <div class="accordion-item">
     <h2 class="accordion-header" id="headingTwo">
       <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
@@ -109,6 +111,40 @@ if(isset($_SESSION['usr'])){
       </div>
     </div>
   </div>
+  <!-- FINALIZA UN ITEM DEL ACORDEON -->
+
+
+    <!-- INICIA UN ITEM DEL ACORDEON -->
+    <div class="accordion-item">
+    <h2 class="accordion-header" id="headingdepto">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsedepto" aria-expanded="false" aria-controls="collapsedepto">
+        Departamentos
+      </button>
+    </h2>
+    <div id="collapsedepto" class="accordion-collapse collapse" aria-labelledby="headingdepto" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+      
+      <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+                <button type="button" class="btn btn-link" onclick="VistaDepartamentoAdmin()">
+                    Ver departamentos
+                </button>
+            </li>
+            <li class="list-group-item">
+                <button type="button" class="btn btn-link" >
+                    Crear departamentos
+                </button>
+            </li>
+      </ul>
+      
+
+      </div>
+    </div>
+  </div>
+  <!-- FINALIZA UN ITEM DEL ACORDEON -->
+
+
+
   <div class="accordion-item">
     <h2 class="accordion-header" id="headingThree">
       <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
