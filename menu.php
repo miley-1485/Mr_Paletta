@@ -13,7 +13,9 @@ if(isset($_SESSION['usr'])){
     <script src="assets/bootstrap-5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="assets/jquery.js"></script>
     <link href="assets/bootstrap-5.3.3/dist/css/bootstrap.css" rel="stylesheet" id="bootstrap-css">
-    
+    <script src="Ajax/Perfil.js"></script>
+    <script src="assets/Datatable/datatables.min.js"></script>
+    <link href="assets/Datatable/datatables.css" rel="stylesheet"></script>
 </head>
 
 <body>
@@ -88,7 +90,16 @@ if(isset($_SESSION['usr'])){
     </h2>
     <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
       <div class="accordion-body">
-        
+      
+      <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+                <button type="button" class="btn btn-link" onclick="VistaPerfilAdmin()">
+                    Ver Perfiles
+                </button>
+            </li>
+      </ul>
+      
+
       </div>
     </div>
   </div>
@@ -110,7 +121,7 @@ if(isset($_SESSION['usr'])){
      
 
     <div class="card">
-            <div class="card-body">
+            <div class="card-body" id="contenido">
             Bienvenido al sistema de gestion de MR Paletta
             </div>
     </div>   
