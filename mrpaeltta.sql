@@ -114,7 +114,7 @@ CREATE TABLE `perfil` (
   `nombre` varchar(150) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `fecha_creacion` timestamp NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`id_perfil`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -123,7 +123,7 @@ CREATE TABLE `perfil` (
 
 LOCK TABLES `perfil` WRITE;
 /*!40000 ALTER TABLE `perfil` DISABLE KEYS */;
-INSERT INTO `perfil` VALUES (1,'Administrador','2024-02-11 07:31:32'),(2,'Vendedor','2024-02-11 03:17:03');
+INSERT INTO `perfil` VALUES (1,'Administrador','2024-02-11 07:31:32'),(2,'Vendedor','2024-02-11 03:17:03'),(3,'mierda','2024-03-25 03:06:52');
 /*!40000 ALTER TABLE `perfil` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -354,4 +354,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-03-18 17:47:16
+-- Dump completed on 2024-04-08 21:29:13
