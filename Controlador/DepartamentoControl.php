@@ -8,3 +8,7 @@ if($opcion == 'VerDepartamentos'){
     $retorno = $obj_departamento->VerDepartamentos($_REQUEST);
     echo $retorno;
 }
+if($opcion == 'CrearDepartamento'){
+    $retorno = $obj_departamento->CrearDepartamento($_REQUEST);
+    echo $retorno;
+}

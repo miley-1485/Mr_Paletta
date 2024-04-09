@@ -31,6 +31,23 @@ class DepartamentoModelo extends BD{
         return $json;
     }
 
+    public function CrearDepartamento($datos){
+
+      try {
+
+          $sql = BD::Conectar()->prepare("INSERT INTO departamento (nombre) VALUES (:nombre)");
+          $sql->bindParam(':nombre', $datos['nombre']);
+          $sql->execute();
+
+          return "ok";
+
+      } catch (PDOException $e) {
+          return "error";
+      }
+
+
+  }
+
 }
 
 ?>

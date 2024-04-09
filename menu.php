@@ -131,7 +131,7 @@ if(isset($_SESSION['usr'])){
                 </button>
             </li>
             <li class="list-group-item">
-                <button type="button" class="btn btn-link" >
+                <button type="button" class="btn btn-link" onclick="VistaCrearDepartamento()">
                     Crear departamentos
                 </button>
             </li>
