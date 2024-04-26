@@ -1,3 +1,11 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="menu.php">Home</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Ver departamentos</li>
+  </ol>
+</nav>
+
+<br>
 
 <table class="table table-striped" id="tabla_admin_departamento" class="display" >
     <thead>

@@ -14,6 +14,8 @@ class DepartamentoModelo extends BD{
 
         foreach ($resul as $key => $value) {
 
+          $nombre_departamento = "'".$value['nombre']."'";
+
             $arreglo_interior = array($value['nombre'],
             '<div class="btn-group" role="group">
             <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
@@ -21,6 +23,7 @@ class DepartamentoModelo extends BD{
             </button>
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" href="#")">Editar</a></li>
+              <li><a class="dropdown-item" href="#" onclick="VistaMunicipios('.$nombre_departamento.','.$value['id_departamento'].')")">Ver Municipios</a></li>
             </ul>
           </div>');
             array_push($arreglo_retorno, $arreglo_interior);
