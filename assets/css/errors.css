@@ -1,0 +1,7 @@
+.error{
+    color: #dc3545;
+}
+
+.form-control error{
+    color: #dc3545;
+}

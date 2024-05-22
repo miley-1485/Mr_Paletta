@@ -51,6 +51,27 @@ class DepartamentoModelo extends BD{
 
   }
 
+  public function ConsultaGeneralDepartamentos($datos){
+
+    $arreglo_retorno = array();
+
+    $sql = BD::Conectar()->prepare("SELECT * FROM departamento WHERE estado = 'AC'");
+    $sql->execute();
+    $resul = $sql->fetchAll(PDO::FETCH_ASSOC);
+
+    foreach ($resul as $key => $value) {
+        $arreglo_interior = array(
+          "id_departamento"=>$value['id_departamento'],
+          "nombre_departamento" =>$value['nombre']
+        );
+        array_push($arreglo_retorno, $arreglo_interior);
+
+    }
+    $json = json_encode($arreglo_retorno);
+
+    return $json;
+}
+
 }
 
 ?>

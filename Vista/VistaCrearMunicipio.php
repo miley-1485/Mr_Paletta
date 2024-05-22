@@ -19,8 +19,7 @@ $id_departamento = $_POST['id_departamento'];
             return false;
         },
         submitHandler: function (form) {
-            //EditarMunicipio(<?php echo $id_municipio;?>);
-            //alert("holaaa");
+          CrearMunicipio("<?php echo $nombre_departamento;?>",<?php echo $id_departamento;?>);
         }
     });
 </script>
@@ -50,6 +49,6 @@ $id_departamento = $_POST['id_departamento'];
   <input type="text" class="form-control" id="municipio" name="municipio" placeholder="INGRESE EL NOMBRE DEL MUNICIPIO">
 </div>
 <div class="mb-3">
-    <button id="btoGuardarmunicipio" name="btoGuardarmunicipio" class="btn btn-primary" type="submit" >Editar</button>
+    <button id="btoGuardarmunicipio" name="btoGuardarmunicipio" class="btn btn-primary" type="submit" >Guardar</button>
 </div>
 </form>

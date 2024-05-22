@@ -12,3 +12,7 @@ if($opcion == 'CrearDepartamento'){
     $retorno = $obj_departamento->CrearDepartamento($_REQUEST);
     echo $retorno;
 }
+if($opcion == 'ConsultaGeneralDepartamentos'){
+    $retorno = $obj_departamento->ConsultaGeneralDepartamentos($_REQUEST);
+    echo $retorno;
+}

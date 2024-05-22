@@ -73,3 +73,24 @@ function VistaCrearDepartamento(){
 
     $("#contenido").html(data);
 }
+
+
+function ConsultaGeneralDepartamentos(){
+
+    var datos;
+    $.ajax({
+        type: "POST",
+        url: "Controlador/DepartamentoControl.php",
+        async: false,
+        dataType: 'json',
+        data: {
+            opc: 'ConsultaGeneralDepartamentos'
+        },
+        success: function (retu) {
+            datos = retu;
+        }
+    });
+    
+    return datos;
+
+}

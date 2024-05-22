@@ -16,9 +16,12 @@ if(isset($_SESSION['usr'])){
     <script src="Ajax/Perfil.js"></script>
     <script src="Ajax/Departamento.js"></script>
     <script src="Ajax/Municipio.js"></script>
+    <script src="Ajax/Sede.js"></script>
+    <script src="Ajax/Producto.js"></script>
     <script src="assets/Datatable/datatables.min.js"></script>
     <link href="assets/css/datatable.css" rel="stylesheet"></script>
     <script src="assets/js/jquery_validate.js"></script>
+    <link href="assets/css/errors.css" rel="stylesheet" id="bootstrap-css">
 </head>
 
 <body>
@@ -62,105 +65,141 @@ if(isset($_SESSION['usr'])){
 
 <div class="container-fluid" style="margin-top: 3%">
 <div class="row">
-    <div class="col-3">
-    <div class="accordion" id="accordionExample">
-  <div class="accordion-item">
-    <h2 class="accordion-header" id="headingOne">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-        Usuario
-      </button>
-    </h2>
-    <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-      <div class="accordion-body">
-       <ul class="list-group list-group-flush">
-            <li class="list-group-item">
-                <button type="button" class="btn btn-link">
-                    Crear usuario
-                </button>
-            </li>
-            <li class="list-group-item">
-                <button type="button" class="btn btn-link">Ver usuarios</button>
-            </li>
-        </ul>
+<div class="col-3">
+  <div class="accordion" id="accordionExample">
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingOne">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+          Usuario
+        </button>
+      </h2>
+      <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+        <ul class="list-group list-group-flush">
+              <li class="list-group-item">
+                  <button type="button" class="btn btn-link">
+                      Crear usuario
+                  </button>
+              </li>
+              <li class="list-group-item">
+                  <button type="button" class="btn btn-link">Ver usuarios</button>
+              </li>
+          </ul>
+        </div>
       </div>
     </div>
-  </div>
-  <!-- INICIA UN ITEM DEL ACORDEON -->
-  <div class="accordion-item">
-    <h2 class="accordion-header" id="headingTwo">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-        Perfil
-      </button>
-    </h2>
-    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-      <div class="accordion-body">
-      
-      <ul class="list-group list-group-flush">
-            <li class="list-group-item">
-                <button type="button" class="btn btn-link" onclick="VistaPerfilAdmin()">
-                    Ver Perfiles
-                </button>
-            </li>
-            <li class="list-group-item">
-                <button type="button" class="btn btn-link" onclick="VistaCrearPerfil()">
-                    Crear Perfiles
-                </button>
-            </li>
-      </ul>
-      
-
-      </div>
-    </div>
-  </div>
-  <!-- FINALIZA UN ITEM DEL ACORDEON -->
-
-
     <!-- INICIA UN ITEM DEL ACORDEON -->
     <div class="accordion-item">
-    <h2 class="accordion-header" id="headingdepto">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsedepto" aria-expanded="false" aria-controls="collapsedepto">
-        Departamentos
-      </button>
-    </h2>
-    <div id="collapsedepto" class="accordion-collapse collapse" aria-labelledby="headingdepto" data-bs-parent="#accordionExample">
-      <div class="accordion-body">
-      
-      <ul class="list-group list-group-flush">
-            <li class="list-group-item">
-                <button type="button" class="btn btn-link" onclick="VistaDepartamentoAdmin()">
-                    Ver departamentos
-                </button>
-            </li>
-            <li class="list-group-item">
-                <button type="button" class="btn btn-link" onclick="VistaCrearDepartamento()">
-                    Crear departamentos
-                </button>
-            </li>
-      </ul>
-      
-
-      </div>
-    </div>
-  </div>
-  <!-- FINALIZA UN ITEM DEL ACORDEON -->
-
-
-
-  <div class="accordion-item">
-    <h2 class="accordion-header" id="headingThree">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-        Sede
-      </button>
-    </h2>
-    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-      <div class="accordion-body">
+      <h2 class="accordion-header" id="headingTwo">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          Perfil
+        </button>
+      </h2>
+      <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+        <div class="accordion-body">
         
+        <ul class="list-group list-group-flush">
+              <li class="list-group-item">
+                  <button type="button" class="btn btn-link" onclick="VistaPerfilAdmin()">
+                      Ver Perfiles
+                  </button>
+              </li>
+              <li class="list-group-item">
+                  <button type="button" class="btn btn-link" onclick="VistaCrearPerfil()">
+                      Crear Perfiles
+                  </button>
+              </li>
+        </ul>
+        
+
+        </div>
       </div>
     </div>
-  </div>
-</div>
+    <!-- FINALIZA UN ITEM DEL ACORDEON -->
+
+
+      <!-- INICIA UN ITEM DEL ACORDEON -->
+      <div class="accordion-item">
+      <h2 class="accordion-header" id="headingdepto">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsedepto" aria-expanded="false" aria-controls="collapsedepto">
+          Departamentos
+        </button>
+      </h2>
+      <div id="collapsedepto" class="accordion-collapse collapse" aria-labelledby="headingdepto" data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+        
+        <ul class="list-group list-group-flush">
+              <li class="list-group-item">
+                  <button type="button" class="btn btn-link" onclick="VistaDepartamentoAdmin()">
+                      Ver departamentos
+                  </button>
+              </li>
+              <li class="list-group-item">
+                  <button type="button" class="btn btn-link" onclick="VistaCrearDepartamento()">
+                      Crear departamentos
+                  </button>
+              </li>
+        </ul>
+        
+
+        </div>
+      </div>
     </div>
-    <div class="col-9">
+    <!-- FINALIZA UN ITEM DEL ACORDEON -->
+
+
+
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingThree">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          Sede
+        </button>
+      </h2>
+      <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+        <ul class="list-group list-group-flush">
+              <li class="list-group-item">
+                  <button type="button" class="btn btn-link" onclick="VistaSedeAdmin()">
+                      Ver sedes
+                  </button>
+              </li>
+              <li class="list-group-item">
+                  <button type="button" class="btn btn-link" onclick="VistaCrearSede()">
+                      Crear sede
+                  </button>
+              </li>
+        </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingProd">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseProd" aria-expanded="false" aria-controls="collapseProd">
+          Productos
+        </button>
+      </h2>
+      <div id="collapseProd" class="accordion-collapse collapse" aria-labelledby="headingProd" data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+        <ul class="list-group list-group-flush">
+              
+              <li class="list-group-item">
+                  <button type="button" class="btn btn-link" onclick="VistaCrearProducto()">
+                      Crear producto
+                  </button>
+              </li>
+        </ul>
+        </div>
+      </div>
+    </div>
+
+
+
+  </div>
+
+</div>
+
+<div class="col-9">
      
 
     <div class="card">
