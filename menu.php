@@ -18,6 +18,7 @@ if(isset($_SESSION['usr'])){
     <script src="Ajax/Municipio.js"></script>
     <script src="Ajax/Sede.js"></script>
     <script src="Ajax/Producto.js"></script>
+    <script src="Ajax/Cliente.js"></script>
     <script src="assets/Datatable/datatables.min.js"></script>
     <link href="assets/css/datatable.css" rel="stylesheet"></script>
     <script src="assets/js/jquery_validate.js"></script>
@@ -67,6 +68,8 @@ if(isset($_SESSION['usr'])){
 <div class="row">
 <div class="col-3">
   <div class="accordion" id="accordionExample">
+
+
     <div class="accordion-item">
       <h2 class="accordion-header" id="headingOne">
         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
@@ -84,6 +87,32 @@ if(isset($_SESSION['usr'])){
               <li class="list-group-item">
                   <button type="button" class="btn btn-link">Ver usuarios</button>
               </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingCli">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCli" aria-expanded="false" aria-controls="collapseCli">
+          Cliente
+        </button>
+      </h2>
+      <div id="collapseCli" class="accordion-collapse collapse" aria-labelledby="headingCli" data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+        <ul class="list-group list-group-flush">
+              <li class="list-group-item">
+                  <button type="button" class="btn btn-link" onclick="VistaClienteAdmin()">
+                      Ver clientes
+                  </button>
+              </li>
+              <li class="list-group-item">
+                  <button type="button" class="btn btn-link" onclick="VistaCrearCliente()">
+                      Crear cliente
+                  </button>
+              </li>
+              
+             
           </ul>
         </div>
       </div>
@@ -184,10 +213,16 @@ if(isset($_SESSION['usr'])){
         <ul class="list-group list-group-flush">
               
               <li class="list-group-item">
+                  <button type="button" class="btn btn-link" onclick="VistaProductoAdmin()">
+                      Ver productos
+                  </button>
+              </li>
+              <li class="list-group-item">
                   <button type="button" class="btn btn-link" onclick="VistaCrearProducto()">
                       Crear producto
                   </button>
               </li>
+             
         </ul>
         </div>
       </div>

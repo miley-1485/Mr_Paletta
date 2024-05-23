@@ -8,5 +8,10 @@ if($opcion == 'CrearProducto'){
     $retorno = $obj_producto->CrearProducto($_POST,$_FILES);
     echo $retorno;
 }
+if($opcion == 'VerProductos'){
+
+    $retorno = $obj_producto->VerProductos($_REQUEST);
+    echo $retorno;
+}
 
 ?>

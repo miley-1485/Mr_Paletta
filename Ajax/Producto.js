@@ -77,3 +77,39 @@ function CrearProducto(){
         alert("Comprueba la extensión de los archivos a subir. \nSólo se pueden subir archivos con extensiones: " + extensiones_permitidas.join() + "\n O revise que todos los documentos esten anexos ");
     }
 }
+
+function VerProductos(){
+
+    var datos;
+    $.ajax({
+        type: "POST",
+        url: "Controlador/ProductoControl.php",
+        async: false,
+        dataType: 'json',
+        data: {
+            opc: 'VerProductos'
+        },
+        success: function (retu) {
+            datos = retu;
+        }
+    });
+    
+    return datos;
+}
+
+function VistaProductoAdmin(){
+
+    var data;
+
+    $.ajax({
+        type: "POST",
+        url: "Vista/VistaProductoAdmin.php",
+        async: false,
+        success: function (retu) {
+            data = retu;
+        }
+    });
+
+    $("#contenido").html(data);
+
+}

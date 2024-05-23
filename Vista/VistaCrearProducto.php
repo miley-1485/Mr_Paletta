@@ -78,11 +78,3 @@
     <button id="btoGuardarPerfil" name="btoGuardarPerfil" class="btn btn-primary" type="submit" >Guardar</button>
 </div>
 </form>
-
-<script>
-  var json_departamentos = ConsultaGeneralDepartamentos();
-  $.each( json_departamentos, function( key, value ) {
-    $("#departamento").append('<option value="'+value.id_departamento+'">'+value.nombre_departamento+'</option>');
-  });
-    
-</script>
