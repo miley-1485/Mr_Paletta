@@ -151,3 +151,105 @@ function VistaDetalleProducto(id_producto){
     $("#contenido").html(data);
 
 }
+
+function VistaEditarProducto(id_producto){
+
+    var data;
+
+    $.ajax({
+        type: "POST",
+        url: "Vista/VistaEditarProducto.php",
+        async: false,
+        data:{
+            id_producto:id_producto
+        },
+        success: function (retu) {
+            data = retu;
+        }
+    });
+
+    $("#contenido").html(data);
+
+}
+
+
+function EditarProducto(id_producto){
+    var foto = "";
+    var archivo = document.getElementById("foto");
+    var formElement = document.getElementById("frm_producto");
+    var data = new FormData(formElement);
+
+
+
+    if(!$("#foto").val()){
+        foto = "no"
+        data.append('foto', foto);
+       
+    }else{
+        foto = "si";
+        var extensiones_permitidas = new Array(".jpg",".png","jpeg");
+        var file;
+        var errores = 0;
+
+        var extension_archivo = (archivo.value.substring(archivo.value.lastIndexOf("."))).toLowerCase();
+        var permitida_archivo = false;
+
+        for (var i = 0; i < extensiones_permitidas.length; i++) {
+            if (extensiones_permitidas[i] == extension_archivo) {
+                permitida_archivo = true;
+                break;
+            }
+        }
+
+        if (permitida_archivo) {
+            file = archivo.files[0];
+            data.append('foto', file);
+        } else {
+            errores = errores + 1;
+        }
+
+    }
+
+
+    if(foto == "si" && errores != 0){
+        
+        alert("Comprueba la extensión de los archivos a subir. \nSólo se pueden subir archivos con extensiones: " + extensiones_permitidas.join() + "\n O revise que todos los documentos esten anexos ");
+        return false;
+    }
+
+   
+
+        data.append('opc', 'EditarProducto');
+        data.append('nombre_producto', $("#nombre").val());
+        data.append('descripcion', $("#descripcion").val());
+        data.append('receta', $("#receta").val());
+        data.append('valor_unitario', $("#valor_unitario").val());
+        data.append('cantidad', $("#cantidad").val());
+        data.append('estado', $("#estado").val());
+        data.append('id_producto', id_producto);
+        
+
+        var url = "Controlador/ProductoControl.php";
+        var retorno;
+        $.ajax({
+            url: url,
+            type: 'POST',
+            contentType: false,
+            data: data,
+            async: false,
+            processData: false,
+            cache: false
+        }).done(function (retu) {
+            retorno = retu;
+        });
+        
+        if(retorno == 'ok'){
+            alert("SE EDITO CORRECTAMENTE EL PRODUCTO");
+            VistaEditarProducto(id_producto);
+        }else if(retorno == 'error'){
+            alert("OCURRIO UN ERROR AL EDITAR LA SEDE COMUNIQUESE CON SOPORTE TECNICO");
+        }
+        
+
+   
+}

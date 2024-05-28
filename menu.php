@@ -20,6 +20,7 @@ if(isset($_SESSION['usr'])){
     <script src="Ajax/Producto.js"></script>
     <script src="Ajax/Cliente.js"></script>
     <script src="Ajax/venta.js"></script>
+    <script src="Ajax/Reporte.js"></script>
     <script src="assets/js/select2.min.js"></script>
     <script src="assets/Datatable/datatables.min.js"></script>
     <link href="assets/css/datatable.css" rel="stylesheet"></script>
@@ -251,6 +252,28 @@ if(isset($_SESSION['usr'])){
               <li class="list-group-item">
                   <button type="button" class="btn btn-link" onclick="VistaCrearVenta()">
                       Crear Venta
+                  </button>
+              </li>
+             
+        </ul>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingRepo">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseRepo" aria-expanded="false" aria-controls="collapseRepo">
+          Reportes
+        </button>
+      </h2>
+      <div id="collapseRepo" class="accordion-collapse collapse" aria-labelledby="headingRepo" data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+        <ul class="list-group list-group-flush">
+            
+              <li class="list-group-item">
+                  <button type="button" class="btn btn-link" onclick="VistaReporteAdmin()">
+                      Ver Reportes
                   </button>
               </li>
              

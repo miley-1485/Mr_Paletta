@@ -23,6 +23,11 @@ if($opcion == 'AddProducto'){
     $retorno = $obj_producto->AddProducto($_REQUEST);
     echo $retorno;
 }
+if($opcion == 'EditarProducto'){
+
+    $retorno = $obj_producto->EditarProducto($_POST,$_FILES);
+    echo $retorno;
+}
 
 
 ?>

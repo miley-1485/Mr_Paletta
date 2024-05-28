@@ -73,7 +73,7 @@ class ProductoModelo extends BD{
               ACCIONES
             </button>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Editar</a></li>
+              <li><a class="dropdown-item" href="#" onclick="VistaEditarProducto('.$value['id_producto'].')">Editar</a></li>
               <li><a class="dropdown-item" href="#" onclick="VistaDetalleProducto('.$value['id_producto'].')">Ver detalle</a></li>
             </ul>
           </div>');
@@ -121,6 +121,82 @@ class ProductoModelo extends BD{
         $json = json_encode($resul[0]);
     
         return $json;
+    }
+
+    public function EditarProducto($datos,$files_data){
+
+        date_default_timezone_set('America/Bogota');
+        session_start();
+        $arreglo_sesion = $_SESSION['usr'];
+
+
+        if(@$datos["foto"] != "no"){
+
+            if ($files_data['foto']['error'] == 0) {
+
+                $extension = pathinfo($files_data["foto"]["name"], PATHINFO_EXTENSION);
+                $name = date('Ymdhis') . "_producto.".$extension;
+                $move = move_uploaded_file($files_data['foto']['tmp_name'], '../documentos/' . $name);
+                
+                if(!$move){
+                   return "error"; 
+                }
+
+            }else{
+
+                return "error";
+            }
+
+        }
+
+        try {
+
+            $sql_update = "";
+
+            if(@$datos['foto'] == 'no'){
+                $sql_update = "UPDATE producto SET nombre_producto = :nombre_producto,
+                                                   descripcion =:descripcion,
+                                                   receta =:receta,
+                                                   valor_unitario=:valor_unitario,
+                                                   usr_creo=:usr_creo,
+                                                   cantidad=:cantidad,
+                                                   estado=:estado
+                                WHERE id_producto =:id_producto";
+            }else{
+            
+                $sql_update = "UPDATE producto SET nombre_producto = :nombre_producto,
+                                                   descripcion =:descripcion,
+                                                   receta =:receta,
+                                                   valor_unitario=:valor_unitario,
+                                                   usr_creo=:usr_creo,
+                                                   cantidad=:cantidad,
+                                                   estado=:estado,
+                                                   foto='".$name."'
+                                WHERE id_producto =:id_producto";
+            }
+  
+            $sql = BD::Conectar()->prepare($sql_update);
+
+           
+            $id_usuario = $arreglo_sesion[0]["id_usuario"];
+
+            $sql->bindParam(':nombre_producto', $datos['nombre_producto']);
+            $sql->bindParam(':descripcion', $datos['descripcion']);
+            $sql->bindParam(':receta', $datos['receta']);
+            $sql->bindParam(':valor_unitario', $datos['valor_unitario']);
+            $sql->bindParam(':usr_creo', $id_usuario);
+            $sql->bindParam(':cantidad', $datos['cantidad']);
+            $sql->bindParam(':estado', $datos['estado']);
+            $sql->bindParam(':id_producto', $datos['id_producto']);
+
+            $sql->execute();
+  
+            return "ok";
+  
+        } catch (PDOException $e) {
+            return $e;
+        }
+
     }
 
 }
