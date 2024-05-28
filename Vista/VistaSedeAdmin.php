@@ -7,6 +7,7 @@
 
 <br>
 
+<div class="table-responsive">
 <table class="table table-striped" id="tabla_admin_sedes" class="display" >
     <thead>
         <tr>
@@ -23,6 +24,7 @@
 
     </tbody>
 </table>
+</div>
 
 <script>
 

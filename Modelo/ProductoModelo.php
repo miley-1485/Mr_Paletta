@@ -74,7 +74,7 @@ class ProductoModelo extends BD{
             </button>
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" href="#">Editar</a></li>
-              <li><a class="dropdown-item" href="#">Ver detalle</a></li>
+              <li><a class="dropdown-item" href="#" onclick="VistaDetalleProducto('.$value['id_producto'].')">Ver detalle</a></li>
             </ul>
           </div>');
 
@@ -84,6 +84,42 @@ class ProductoModelo extends BD{
 
         $json = json_encode($arreglo_retorno);
 
+        return $json;
+    }
+
+    public function ConsultaGeneralProductos(){
+
+        $arreglo_retorno = array();
+
+        $sql = BD::Conectar()->prepare("SELECT * FROM producto WHERE estado = 'AC' AND cantidad >= 1");
+
+        $sql->execute();
+        $resul = $sql->fetchAll(PDO::FETCH_ASSOC);
+
+        foreach ($resul as $key => $value) {
+            $arreglo_interior = array(
+              "id_producto"=>$value['id_producto'],
+              "nombre_producto" =>$value['nombre_producto'],
+              "cantidad" =>$value['cantidad']
+            );
+            array_push($arreglo_retorno, $arreglo_interior);
+    
+        }
+        $json = json_encode($arreglo_retorno);
+    
+        return $json;
+
+    }
+
+    public function AddProducto($datos){
+
+        $sql = BD::Conectar()->prepare("SELECT * FROM producto WHERE id_producto=:id_producto");
+        $sql->bindParam(':id_producto', $datos['id_producto']);
+        $sql->execute();
+        $resul = $sql->fetchAll(PDO::FETCH_ASSOC);
+
+        $json = json_encode($resul[0]);
+    
         return $json;
     }
 

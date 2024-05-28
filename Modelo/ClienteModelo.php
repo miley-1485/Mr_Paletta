@@ -78,5 +78,24 @@ class ClienteModelo extends BD{
 
     }
 
+    public function Clientes($datos){
+
+      $arreglo_retorno = array();
+
+      $sql = BD::Conectar()->prepare("SELECT cli.*,mun.nombre AS municipio,dep.nombre AS departamento
+      FROM cliente cli
+      LEFT JOIN municipio mun ON mun.id_municipio = cli.id_municipio
+      LEFT JOIN departamento dep ON dep.id_departamento = mun.id_departamento");
+
+      $sql->execute();
+      $resul = $sql->fetchAll(PDO::FETCH_ASSOC);
+
+      $json = json_encode($resul);
+
+      return $json;
+
+
+  }
+
 
 }

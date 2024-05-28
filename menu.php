@@ -19,10 +19,13 @@ if(isset($_SESSION['usr'])){
     <script src="Ajax/Sede.js"></script>
     <script src="Ajax/Producto.js"></script>
     <script src="Ajax/Cliente.js"></script>
+    <script src="Ajax/venta.js"></script>
+    <script src="assets/js/select2.min.js"></script>
     <script src="assets/Datatable/datatables.min.js"></script>
     <link href="assets/css/datatable.css" rel="stylesheet"></script>
     <script src="assets/js/jquery_validate.js"></script>
     <link href="assets/css/errors.css" rel="stylesheet" id="bootstrap-css">
+    <link href="assets/css/select2.min.css" rel="stylesheet" id="bootstrap-css">
 </head>
 
 <body>
@@ -220,6 +223,34 @@ if(isset($_SESSION['usr'])){
               <li class="list-group-item">
                   <button type="button" class="btn btn-link" onclick="VistaCrearProducto()">
                       Crear producto
+                  </button>
+              </li>
+             
+        </ul>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingVen">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseVen" aria-expanded="false" aria-controls="collapseVen">
+          Ventas
+        </button>
+      </h2>
+      <div id="collapseVen" class="accordion-collapse collapse" aria-labelledby="headingVen" data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+        <ul class="list-group list-group-flush">
+              
+              
+              <li class="list-group-item">
+                  <button type="button" class="btn btn-link" onclick="VistaVentaAdmin()">
+                      Ver Ventas
+                  </button>
+              </li>
+              <li class="list-group-item">
+                  <button type="button" class="btn btn-link" onclick="VistaCrearVenta()">
+                      Crear Venta
                   </button>
               </li>
              

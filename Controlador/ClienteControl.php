@@ -11,6 +11,10 @@ if($opcion == 'VerClientes'){
     $retorno = $obj_cliente->VerClientes($_POST);
     echo $retorno;
 }
+if($opcion == 'Clientes'){
+    $retorno = $obj_cliente->Clientes($_POST);
+    echo $retorno;
+}
 
 
 ?>

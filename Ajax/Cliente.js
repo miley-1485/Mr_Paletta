@@ -80,3 +80,21 @@ function VistaClienteAdmin(){
     $("#contenido").html(data);
 
 }
+
+function Clientes() {
+    var datos;
+    $.ajax({
+        type: "POST",
+        url: "Controlador/ClienteControl.php",
+        async: false,
+        dataType: 'json',
+        data: {
+            opc: 'Clientes'
+        },
+        success: function (retu) {
+            datos = retu;
+        }
+    });
+    
+    return datos;
+}

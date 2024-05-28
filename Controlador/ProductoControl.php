@@ -13,5 +13,16 @@ if($opcion == 'VerProductos'){
     $retorno = $obj_producto->VerProductos($_REQUEST);
     echo $retorno;
 }
+if($opcion == 'ConsultaGeneralProductos'){
+
+    $retorno = $obj_producto->ConsultaGeneralProductos($_REQUEST);
+    echo $retorno;
+}
+if($opcion == 'AddProducto'){
+
+    $retorno = $obj_producto->AddProducto($_REQUEST);
+    echo $retorno;
+}
+
 
 ?>

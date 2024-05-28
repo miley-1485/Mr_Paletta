@@ -113,3 +113,41 @@ function VistaProductoAdmin(){
     $("#contenido").html(data);
 
 }
+
+function ConsultaGeneralProductos(){
+    var datos;
+    $.ajax({
+        type: "POST",
+        url: "Controlador/ProductoControl.php",
+        async: false,
+        dataType: 'json',
+        data: {
+            opc: 'ConsultaGeneralProductos'
+        },
+        success: function (retu) {
+            datos = retu;
+        }
+    });
+    
+    return datos;
+}
+
+function VistaDetalleProducto(id_producto){
+
+    var data;
+
+    $.ajax({
+        type: "POST",
+        url: "Vista/VistaDetalleProducto.php",
+        async: false,
+        data:{
+            id_producto:id_producto
+        },
+        success: function (retu) {
+            data = retu;
+        }
+    });
+
+    $("#contenido").html(data);
+
+}
